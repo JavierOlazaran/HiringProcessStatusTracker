@@ -1,1 +1,84 @@
-<p>main works!</p>
+<div class="main-page__container">
+
+  <nav class="main-navbar__container"></nav>
+
+  <ul class="processes__list">
+    <li *ngFor="let process of processes$ | async" class="processes__item">
+
+      <h4>Company: {{process.companyName}}</h4>
+
+      <table class="processes__itemInfo">
+        <tr>
+          <th class="processes__itemInfo__header">Role</th>
+        </tr>
+
+        <tr>
+          <td class="processes__itemInfo__definition">
+            <table>
+              <tr>
+                <th>Job type:</th>
+                <td>{{process.job.jobTitle}}</td>
+              </tr>
+              <tr>
+                <th>Job description:</th>
+                <td>{{process.job.jobDescription}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="processes__itemInfo__header">Contact</th>
+          <td class="processes__itemInfo__definition">{{process.poc}}</td>
+        </tr>
+
+        <tr>
+          <th class="processes__itemInfo__header">Offer</th>
+        </tr>
+        <tr>
+          <td class="processes__itemInfo__definition">
+            <table>
+              <tr>
+                <th>Benefits:</th>
+                <td>{{process.offer.benefits}}</td>
+              </tr>
+              <tr>
+                <th>Rate:</th>
+                <td>{{process.offer.rate.amount}} {{process.offer.rate.currency}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="processes__itemInfo__header">Rating</th>
+          <td class="processes__itemInfo__definition">{{process.rating}}</td>
+        </tr>
+
+        <tr>
+          <th style="vertical-align: top" class="processes__itemInfo__header">Status</th>
+          <td class="processes__itemInfo__definition">
+            <ul>
+              <li *ngFor="let statusItem of process.status">
+                <table>
+                  <tr>
+                    <th>Date:</th>
+                    <td>{{statusItem.date}}</td>
+                  </tr>
+                  <tr>
+                    <th>Type:</th>
+                    <td>{{statusItem.statusType}}</td>
+                  </tr>
+                  <tr>
+                    <th>Description:</th>
+                    <td>{{statusItem.description}}</td>
+                  </tr>
+                </table>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+</div>
